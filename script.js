@@ -1,13 +1,14 @@
 let collapsibleItemEls = document.querySelectorAll('.collapsible-item')
-let collapsibleDescriptionItems = document.querySelectorAll('.collapsible-item p')
-console.log(collapsibleItemEls)
-
 
 collapsibleItemEls.forEach(el => {
-    let pEl = el.querySelector('p')
-    pEl.hidden = true;
+    let imgEl = el.querySelector('img');
     el.addEventListener('click', () => {
-      pEl.hidden = !pEl.hidden
+      el.classList.toggle('plus')
+      if (el.classList.contains('plus')) {
+        imgEl.setAttribute('src', './assets/images/icon-plus.svg')
+      } else {
+        imgEl.setAttribute('src', './assets/images/icon-minus.svg')
+      }
     })
   }
 )

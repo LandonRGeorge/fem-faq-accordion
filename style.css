@@ -1,20 +1,96 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-dark-purple: #301534;
+    --clr-pink: #ad28eb;
+    --clr-light-pink: #f8eeff;
+    --clr-pale-purple: #8b6990;
+    --clr-white: #fff;
+}
+
 body {
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightgray;
+    background-color: var(--clr-light-pink);
+    color: var(--clr-dark-purple);
+    background-image: url("./assets/images/background-pattern-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0;
+}
+
+@media(max-width: 600px) {
+    body {
+        background-image: url("./assets/images/background-pattern-mobile.svg");
+
+    }
+}
+
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    height: clamp(2rem, 3vw, 3rem);
+}
+
+.header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    padding-left: 0.5em;
+    margin: 0;
 }
 
 main {
-    width: 500px;
+    max-width: 600px;
     background-color: white;
-    padding: 2rem;
+    padding: 2.5rem 2.5rem 0 2.5rem;
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 2em;
 }
 
-h2:hover {
-    color: purple;
+.collapsible-item {
+    display: grid;
+    grid-template-columns: auto 50px;
+    align-items: center;
     cursor: pointer;
 }
+
+.collapsible-item img {
+    justify-self: end;
+}
+
+.collapsible-item:not(.collapsible-item:last-of-type) {
+    border-bottom: 1px solid var(--clr-light-pink);
+}
+
+.collapsible-item h2 {
+    grid-row: 1;
+    grid-column: span 1;
+    margin-block: 1.5rem;
+    font-size: 1.125rem;
+}
+
+.collapsible-item h2:hover {
+    color: var(--clr-pink)
+}
+
+.collapsible-item p {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--clr-pale-purple);
+    grid-column: span 2;
+}
+
+.plus p {
+    display: none;
+}
+
